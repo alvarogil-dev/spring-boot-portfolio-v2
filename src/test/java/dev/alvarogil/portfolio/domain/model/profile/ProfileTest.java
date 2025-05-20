@@ -1,4 +1,4 @@
-package dev.alvarogil.portfolio.domain.model;
+package dev.alvarogil.portfolio.domain.model.profile;
 
 import org.junit.jupiter.api.Test;
 
@@ -57,7 +57,7 @@ class ProfileTest {
         //then
         assertThat(result)
                 .isPresent()
-                .map(ProfileTranslation::getLanguage)
+                .map(ProfileTranslation::language)
                 .hasValue(expectedLanguage);
     }
 
@@ -79,7 +79,7 @@ class ProfileTest {
         var result = profile.getTranslationOrFallback(expectedLanguage);
 
         //then
-        assertThat(result.getLanguage()).isEqualTo(expectedLanguage);
+        assertThat(result.language()).isEqualTo(expectedLanguage);
     }
 
     @Test
@@ -101,7 +101,7 @@ class ProfileTest {
         var result = profile.getTranslationOrFallback(expectedLanguage);
 
         //then
-        assertThat(result.getLanguage()).isEqualTo(defaultLanguage);
+        assertThat(result.language()).isEqualTo(defaultLanguage);
     }
 
     @Test
@@ -135,7 +135,7 @@ class ProfileTest {
 
         assertThat(translation)
                 .isPresent()
-                .map(ProfileTranslation::getLanguage)
+                .map(ProfileTranslation::language)
                 .hasValue(expectedLanguage);
     }
 

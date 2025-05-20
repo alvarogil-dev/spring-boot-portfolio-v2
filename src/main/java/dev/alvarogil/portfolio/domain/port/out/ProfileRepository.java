@@ -1,6 +1,6 @@
 package dev.alvarogil.portfolio.domain.port.out;
 
-import dev.alvarogil.portfolio.domain.model.Profile;
+import dev.alvarogil.portfolio.domain.model.profile.Profile;
 
 import java.util.Optional;
 

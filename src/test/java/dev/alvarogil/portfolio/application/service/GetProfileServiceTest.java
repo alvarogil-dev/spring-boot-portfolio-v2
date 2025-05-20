@@ -2,8 +2,8 @@ package dev.alvarogil.portfolio.application.service;
 
 
 import dev.alvarogil.portfolio.application.dto.ProfileDto;
-import dev.alvarogil.portfolio.domain.model.Profile;
-import dev.alvarogil.portfolio.domain.model.ProfileTranslation;
+import dev.alvarogil.portfolio.domain.model.profile.Profile;
+import dev.alvarogil.portfolio.domain.model.profile.ProfileTranslation;
 import dev.alvarogil.portfolio.domain.port.out.ProfileRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -79,9 +79,9 @@ class GetProfileServiceTest {
         assertThat(result.name()).isEqualTo(profile.getName());
         assertThat(result.email()).isEqualTo(profile.getEmail());
         assertThat(result.location()).isEqualTo(profile.getLocation());
-        assertThat(result.language()).isEqualTo(profileTranslation.getLanguage());
-        assertThat(result.title()).isEqualTo(profileTranslation.getTitle());
-        assertThat(result.summary()).isEqualTo(profileTranslation.getSummary());
+        assertThat(result.language()).isEqualTo(profileTranslation.language());
+        assertThat(result.title()).isEqualTo(profileTranslation.title());
+        assertThat(result.summary()).isEqualTo(profileTranslation.summary());
 
         verifyRepository();
     }
@@ -117,8 +117,8 @@ class GetProfileServiceTest {
         assertThat(result.name()).isEqualTo(profile.getName());
         assertThat(result.email()).isEqualTo(profile.getEmail());
         assertThat(result.location()).isEqualTo(profile.getLocation());
-        assertThat(result.title()).isEqualTo(profileTranslation.getTitle());
-        assertThat(result.summary()).isEqualTo(profileTranslation.getSummary());
+        assertThat(result.title()).isEqualTo(profileTranslation.title());
+        assertThat(result.summary()).isEqualTo(profileTranslation.summary());
 
         verifyRepository();
     }

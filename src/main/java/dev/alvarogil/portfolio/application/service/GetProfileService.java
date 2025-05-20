@@ -2,8 +2,8 @@ package dev.alvarogil.portfolio.application.service;
 
 import dev.alvarogil.portfolio.application.dto.ProfileDto;
 import dev.alvarogil.portfolio.application.mapper.ProfileMapper;
-import dev.alvarogil.portfolio.domain.model.Profile;
-import dev.alvarogil.portfolio.domain.model.ProfileTranslation;
+import dev.alvarogil.portfolio.domain.model.profile.Profile;
+import dev.alvarogil.portfolio.domain.model.profile.ProfileTranslation;
 import dev.alvarogil.portfolio.domain.port.in.GetProfileUseCase;
 import dev.alvarogil.portfolio.domain.port.out.ProfileRepository;
 import org.springframework.stereotype.Service;

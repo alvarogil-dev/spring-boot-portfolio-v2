@@ -1,7 +1,7 @@
 package dev.alvarogil.portfolio.infrastructure.persistence;
 
-import dev.alvarogil.portfolio.domain.model.Profile;
-import dev.alvarogil.portfolio.domain.model.ProfileTranslation;
+import dev.alvarogil.portfolio.domain.model.profile.Profile;
+import dev.alvarogil.portfolio.domain.model.profile.ProfileTranslation;
 import dev.alvarogil.portfolio.domain.port.out.ProfileRepository;
 import org.springframework.stereotype.Repository;
 
