@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Optional;
 
 public class Profile implements Translatable<ProfileTranslation> {
-    private String avatarUrl;
-    private String name;
-    private String email;
-    private String location;
+    private final String avatarUrl;
+    private final String name;
+    private final String email;
+    private final String location;
     private List<ProfileTranslation> translations;
 
     public Profile(String avatarUrl, String name, String email, String location) {
@@ -53,6 +53,7 @@ public class Profile implements Translatable<ProfileTranslation> {
                 .findFirst();
     }
 
+    @Override
     public void addTranslation(ProfileTranslation profileTranslation) {
         String language = profileTranslation.language();
 
