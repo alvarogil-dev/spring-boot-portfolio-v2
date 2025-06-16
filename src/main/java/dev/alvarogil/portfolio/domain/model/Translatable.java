@@ -7,6 +7,8 @@ public interface Translatable<T> {
 
     Optional<T> getTranslation(String language);
 
+    void addTranslation(T translation);
+
     default T getTranslationOrFallback(String language) {
         return getTranslation(language)
                 .orElseGet(() -> getTranslation(DEFAULT_LANGUAGE)
