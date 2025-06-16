@@ -1,4 +1,4 @@
-package dev.alvarogil.portfolio.adapters.web.dto;
+package dev.alvarogil.portfolio.application.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

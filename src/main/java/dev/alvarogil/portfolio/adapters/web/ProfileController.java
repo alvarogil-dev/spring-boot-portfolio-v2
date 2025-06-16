@@ -1,6 +1,6 @@
 package dev.alvarogil.portfolio.adapters.web;
 
-import dev.alvarogil.portfolio.adapters.web.dto.ProfileDto;
+import dev.alvarogil.portfolio.application.dto.ProfileDto;
 import dev.alvarogil.portfolio.application.mapper.ProfileMapper;
 import dev.alvarogil.portfolio.domain.model.profile.Profile;
 import dev.alvarogil.portfolio.domain.port.in.GetProfileUseCase;
