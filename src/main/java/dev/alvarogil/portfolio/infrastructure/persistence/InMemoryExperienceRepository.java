@@ -2,8 +2,11 @@ package dev.alvarogil.portfolio.infrastructure.persistence;
 
 import dev.alvarogil.portfolio.domain.model.Period;
 import dev.alvarogil.portfolio.domain.model.experience.Experience;
+import dev.alvarogil.portfolio.domain.model.role.Achievement;
+import dev.alvarogil.portfolio.domain.model.role.AchievementTranslation;
 import dev.alvarogil.portfolio.domain.model.role.Role;
 import dev.alvarogil.portfolio.domain.model.role.RoleTranslation;
+import dev.alvarogil.portfolio.domain.model.role.Technology;
 import dev.alvarogil.portfolio.domain.port.out.ExperienceRepository;
 import org.springframework.stereotype.Repository;
 
@@ -39,6 +42,21 @@ public class InMemoryExperienceRepository implements ExperienceRepository {
         Role role = new Role(new Period(YearMonth.of(2022, 3), null));
         role.addTranslation(roleTranslation);
         role.addTranslation(roleTranslationSpanish);
+        role.addTechnology(new Technology("Spring Boot", "https://spring.io/projects/spring-boot"));
+        role.addTechnology(new Technology("PostgreSQL", "https://www.postgresql.org/"));
+
+        Achievement achievement = new Achievement();
+        achievement.addTranslation(new AchievementTranslation(
+                "en",
+                "Reduced deployment time",
+                "Automated the CI/CD pipeline to cut deployment time by 40%."
+        ));
+        achievement.addTranslation(new AchievementTranslation(
+                "es",
+                "Reducción del tiempo de despliegue",
+                "Automatización del pipeline CI/CD para reducir el tiempo de despliegue en un 40%."
+        ));
+        role.addAchievement(achievement);
 
         Experience experience = new Experience(
                 "ERNI",
