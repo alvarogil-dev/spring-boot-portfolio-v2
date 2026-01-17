@@ -15,6 +15,7 @@ class ProfileTest {
                 "avatarUrl",
                 "name",
                 "email",
+                "phone",
                 "location");
     }
 

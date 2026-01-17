@@ -11,13 +11,15 @@ public class Profile implements Translatable<ProfileTranslation> {
     private final String avatarUrl;
     private final String name;
     private final String email;
+    private final String phone;
     private final String location;
     private List<ProfileTranslation> translations;
 
-    public Profile(String avatarUrl, String name, String email, String location) {
+    public Profile(String avatarUrl, String name, String email, String phone, String location) {
         this.avatarUrl = avatarUrl;
         this.name = name;
         this.email = email;
+        this.phone = phone;
         this.location = location;
         translations = new ArrayList<>();
     }
@@ -34,6 +36,10 @@ public class Profile implements Translatable<ProfileTranslation> {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 
     public String getLocation() {

@@ -31,6 +31,7 @@ class GetProfileServiceTest {
                 "avatarUrl",
                 "name",
                 "email",
+                "phone",
                 "location");
     }
 

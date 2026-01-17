@@ -18,6 +18,7 @@ public class ProfileMapper {
                 profile.getAvatarUrl(),
                 profile.getName(),
                 profile.getEmail(),
+                profile.getPhone(),
                 profile.getLocation(),
                 profileTranslation.language(),
                 profileTranslation.title(),

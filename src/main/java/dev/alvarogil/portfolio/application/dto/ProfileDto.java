@@ -17,6 +17,9 @@ public record ProfileDto(
         @Schema(description = "Email address", example = "alvaro@alvarogil.dev")
         String email,
 
+        @Schema(description = "Phone number", example = "+34 600 000 000")
+        String phone,
+
         @Schema(description = "Location or city", example = "Barcelona, Spain")
         String location,
 

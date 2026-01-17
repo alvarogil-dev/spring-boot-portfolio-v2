@@ -32,7 +32,7 @@ class ProfileControllerTest {
     private GetProfileUseCase getProfileUseCase;
 
     private Profile createProfile(String language) {
-        Profile profile = new Profile("avatarUrl", "name", "email", "location");
+        Profile profile = new Profile("avatarUrl", "name", "email", "phone", "location");
         profile.addTranslation(new ProfileTranslation(language, "title", "summary"));
         return profile;
     }
@@ -84,6 +84,7 @@ class ProfileControllerTest {
                 .andExpect(jsonPath("$.avatarUrl").value("avatarUrl"))
                 .andExpect(jsonPath("$.name").value("name"))
                 .andExpect(jsonPath("$.email").value("email"))
+                .andExpect(jsonPath("$.phone").value("phone"))
                 .andExpect(jsonPath("$.location").value("location"))
                 .andExpect(jsonPath("$.language").value(profileLang))
                 .andExpect(jsonPath("$.title").value("title"))
