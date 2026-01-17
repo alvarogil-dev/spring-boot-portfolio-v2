@@ -9,13 +9,11 @@ import dev.alvarogil.portfolio.domain.model.profile.Profile;
 import dev.alvarogil.portfolio.domain.model.profile.ProfileTranslation;
 import dev.alvarogil.portfolio.domain.model.role.Role;
 import dev.alvarogil.portfolio.domain.model.role.RoleTranslation;
-import dev.alvarogil.portfolio.domain.model.technology.Technology;
 import dev.alvarogil.portfolio.domain.port.in.GenerateCvPdfUseCase;
 import dev.alvarogil.portfolio.domain.port.in.GetProfileUseCase;
 import dev.alvarogil.portfolio.domain.port.in.ListEducationUseCase;
 import dev.alvarogil.portfolio.domain.port.in.ListExperiencesUseCase;
 import dev.alvarogil.portfolio.domain.port.in.ListLanguagesUseCase;
-import dev.alvarogil.portfolio.domain.port.in.ListTechnologiesUseCase;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
@@ -29,20 +27,17 @@ public class GenerateCvPdfService implements GenerateCvPdfUseCase {
     private final GetProfileUseCase getProfileUseCase;
     private final ListExperiencesUseCase listExperiencesUseCase;
     private final ListLanguagesUseCase listLanguagesUseCase;
-    private final ListTechnologiesUseCase listTechnologiesUseCase;
     private final ListEducationUseCase listEducationUseCase;
 
     public GenerateCvPdfService(
             GetProfileUseCase getProfileUseCase,
             ListExperiencesUseCase listExperiencesUseCase,
             ListLanguagesUseCase listLanguagesUseCase,
-            ListTechnologiesUseCase listTechnologiesUseCase,
             ListEducationUseCase listEducationUseCase
     ) {
         this.getProfileUseCase = getProfileUseCase;
         this.listExperiencesUseCase = listExperiencesUseCase;
         this.listLanguagesUseCase = listLanguagesUseCase;
-        this.listTechnologiesUseCase = listTechnologiesUseCase;
         this.listEducationUseCase = listEducationUseCase;
     }
 
@@ -53,7 +48,6 @@ public class GenerateCvPdfService implements GenerateCvPdfUseCase {
         Profile profile = getProfileUseCase.execute();
         ProfileTranslation profileTranslation = profile.getTranslationOrFallback(effectiveLocale.getLanguage());
         List<Language> languages = listLanguagesUseCase.execute();
-        List<Technology> technologies = listTechnologiesUseCase.execute();
         List<Education> educationEntries = listEducationUseCase.execute();
         List<Experience> experiences = listExperiencesUseCase.execute();
 
@@ -61,7 +55,6 @@ public class GenerateCvPdfService implements GenerateCvPdfUseCase {
                 profile,
                 profileTranslation,
                 languages,
-                technologies,
                 educationEntries,
                 experiences,
                 effectiveLocale
@@ -86,7 +79,6 @@ public class GenerateCvPdfService implements GenerateCvPdfUseCase {
             Profile profile,
             ProfileTranslation profileTranslation,
             List<Language> languages,
-            List<Technology> technologies,
             List<Education> educationEntries,
             List<Experience> experiences,
             Locale locale
@@ -151,20 +143,6 @@ public class GenerateCvPdfService implements GenerateCvPdfUseCase {
             html.append("<li>").append(escapeHtml(language.getDescription())).append("</li>");
         }
         html.append("</ul>");
-
-        html.append("<div class=\"section-title\">")
-                .append(sectionTitle("Tecnologías", "Technologies", locale))
-                .append("</div>");
-        html.append("<table class=\"skills-table\">");
-        html.append("<tr>")
-                .append("<th>").append(escapeHtml(sectionTitle("Tecnologías", "Technologies", locale))).append("</th>")
-                .append("</tr>");
-        for (Technology technology : technologies) {
-            html.append("<tr>")
-                    .append("<td>").append(escapeHtml(technology.getName())).append("</td>")
-                    .append("</tr>");
-        }
-        html.append("</table>");
 
         html.append("<div class=\"section-title\">")
                 .append(sectionTitle("Actividades laborales", "Experience", locale))
