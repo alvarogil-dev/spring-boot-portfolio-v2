@@ -8,6 +8,6 @@ public class LanguageMapper {
     }
 
     public static LanguageDto toDto(Language language) {
-        return new LanguageDto(language.getDescription());
+        return new LanguageDto(language.getName(), language.getLevel().getLabel());
     }
 }

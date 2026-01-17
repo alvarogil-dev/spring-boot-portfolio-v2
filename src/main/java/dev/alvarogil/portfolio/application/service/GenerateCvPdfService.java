@@ -140,7 +140,8 @@ public class GenerateCvPdfService implements GenerateCvPdfUseCase {
         html.append("<div class=\"section-title\">").append(sectionTitle("Idiomas", "Languages", locale)).append("</div>");
         html.append("<ul>");
         for (Language language : languages) {
-            html.append("<li>").append(escapeHtml(language.getDescription())).append("</li>");
+            String languageEntry = "%s - %s".formatted(language.getName(), language.getLevel().getLabel());
+            html.append("<li>").append(escapeHtml(languageEntry)).append("</li>");
         }
         html.append("</ul>");
 

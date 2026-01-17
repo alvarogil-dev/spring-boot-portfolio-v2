@@ -7,7 +7,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
         description = "Represents a language proficiency entry."
 )
 public record LanguageDto(
-        @Schema(description = "Language description", example = "Bilingüe en español y catalán")
-        String description
+        @Schema(description = "Language name", example = "Inglés")
+        String name,
+
+        @Schema(description = "Language level", example = "C1")
+        String level
 ) {
 }

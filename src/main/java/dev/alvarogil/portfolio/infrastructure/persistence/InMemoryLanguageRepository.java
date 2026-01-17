@@ -13,8 +13,10 @@ public class InMemoryLanguageRepository implements LanguageRepository {
 
     public InMemoryLanguageRepository() {
         languages = List.of(
-                new Language("Bilingüe en español y catalán"),
-                new Language("C1 inglés")
+                new Language("Español", Language.Level.MOTHER_TONGUE),
+                new Language("Catalán", Language.Level.MOTHER_TONGUE),
+                new Language("Inglés", Language.Level.C1),
+                new Language("Francés", Language.Level.A1)
         );
     }
 
